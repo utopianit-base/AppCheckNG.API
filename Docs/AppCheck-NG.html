@@ -1,0 +1,1622 @@
+            <!DOCTYPE HTML>
+            <html lang="en-US">
+            <head>
+	            <meta charset="UTF-8">
+	            <title>AppCheck-NG API Client PowerShell Module</title>
+	            <style>
+	            html,body{color:black}*{margin:0;padding:0}body{font:13.34px helvetica,arial,freesans,clean,sans-serif;-webkit-font-smoothing:subpixel-antialiased;line-height:1.4;padding:3px;background:#fff;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px}p{margin:1em 0}a{color:#4183c4;text-decoration:none}#wrapper{background-color:#fff;padding:30px;font-size:14px;line-height:1.6;width:900px;margin:15px auto;}@media screen{#wrapper{box-shadow:0 0 0 1px #cacaca,0 0 0 4px #eee}}#wrapper>*:first-child{margin-top:0!important}#wrapper>*:last-child{margin-bottom:0!important}h1,h2,h3,h4,h5,h6{margin:20px 0 10px;padding:0;font-weight:bold;-webkit-font-smoothing:subpixel-antialiased;cursor:text}h1{font-size:28px;color:#000}h2{font-size:24px;border-bottom:1px solid #ccc;color:#000}h3{font-size:18px;color:#333}h4{font-size:16px;color:#333}h5{font-size:14px;color:#333}h6{color:#777;font-size:14px}p,blockquote,ul,ol,dl,table,pre{margin:15px 0}ul,ol{padding-left:30px}hr{background:transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;border:0 none;color:#ccc;height:4px;padding:0}#wrapper>h2:first-child,#wrapper>h1:first-child,#wrapper>h1:first-child+h2,#wrapper>h3:first-child,#wrapper>h4:first-child,#wrapper>h5:first-child,#wrapper>h6:first-child{margin-top:0;padding-top:0}a:first-child h1,a:first-child h2,a:first-child h3,a:first-child h4,a:first-child h5,a:first-child h6{margin-top:0;padding-top:0}h1+p,h2+p,h3+p,h4+p,h5+p,h6+p{margin-top:0}ul li>:first-child,ol li>:first-child{margin-top:0}dl{padding:0}dl dt{font-size:14px;font-weight:bold;font-style:italic;padding:0;margin:15px 0 5px}dl dt:first-child{padding:0}dl dt>:first-child{margin-top:0}dl dt>:last-child{margin-bottom:0}dl dd{margin:0 0 15px;padding:0 15px}dl dd>:first-child{margin-top:0}dl dd>:last-child{margin-bottom:0}blockquote{border-left:4px solid #DDD;padding:0 15px;color:#777}blockquote>:first-child{margin-top:0}blockquote>:last-child{margin-bottom:0}table{border-collapse:collapse;border-spacing:0;font-size:100%;font:inherit}table th{font-weight:bold}table th,table td{border:1px solid #ccc;padding:6px 13px}table tr{border-top:1px solid #ccc;background-color:#fff}table tr:nth-child(2n){background-color:#f8f8f8}img{max-width:100%}code,tt{margin:0 2px;padding:0 5px;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px}pre>code{margin:0;padding:0;white-space:pre;border:0;background:transparent}.highlight pre,pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}pre code,pre tt{background-color:transparent;border:0}.poetry pre{font-family:Georgia,Garamond,serif!important;font-style:italic;font-size:110%!important;line-height:1.6em;display:block;margin-left:1em}.poetry pre code{font-family:Georgia,Garamond,serif!important;word-break:break-all;word-break:break-word;-webkit-hyphens:auto;-moz-hyphens:auto;hyphens:auto;white-space:pre-wrap}sup,sub,a.footnote{font-size:1.4ex;height:0;line-height:1;vertical-align:super;position:relative}sub{vertical-align:sub;top:-1px}@media print{body{background:#fff}img,pre,blockquote,table,figure{page-break-inside:avoid}#wrapper{background:#fff;border:0}code{background-color:#fff;color:#444!important;padding:0 .2em;border:1px solid #dedede}pre code{background-color:#fff!important;overflow:visible}pre{background:#fff}}@media screen{body.inverted,.inverted #wrapper,.inverted hr .inverted p,.inverted td,.inverted li,.inverted h1,.inverted h2,.inverted h3,.inverted h4,.inverted h5,.inverted h6,.inverted th,.inverted .math,.inverted caption,.inverted dd,.inverted dt,.inverted blockquote{color:#eee!important;border-color:#555}.inverted td,.inverted th{background:#333}.inverted pre,.inverted code,.inverted tt{background:#444!important}.inverted h2{border-color:#555}.inverted hr{border-color:#777;border-width:1px!important}::selection{background:rgba(157,193,200,.5)}h1::selection{background-color:rgba(45,156,208,.3)}h2::selection{background-color:rgba(90,182,224,.3)}h3::selection,h4::selection,h5::selection,h6::selection,li::selection,ol::selection{background-color:rgba(133,201,232,.3)}code::selection{background-color:rgba(0,0,0,.7);color:#eee}code span::selection{background-color:rgba(0,0,0,.7)!important;color:#eee!important}a::selection{background-color:rgba(255,230,102,.2)}.inverted a::selection{background-color:rgba(255,230,102,.6)}td::selection,th::selection,caption::selection{background-color:rgba(180,237,95,.5)}.inverted{background:#0b2531}.inverted #wrapper,.inverted{background:rgba(37,42,42,1)}.inverted a{color:rgba(172,209,213,1)}}.highlight .c{color:#998;font-style:italic}.highlight .err{color:#a61717;background-color:#e3d2d2}.highlight .k{font-weight:bold}.highlight .o{font-weight:bold}.highlight .cm{color:#998;font-style:italic}.highlight .cp{color:#999;font-weight:bold}.highlight .c1{color:#998;font-style:italic}.highlight .cs{color:#999;font-weight:bold;font-style:italic}.highlight .gd{color:#000;background-color:#fdd}.highlight .gd .x{color:#000;background-color:#faa}.highlight .ge{font-style:italic}.highlight .gr{color:#a00}.highlight .gh{color:#999}.highlight .gi{color:#000;background-color:#dfd}.highlight .gi .x{color:#000;background-color:#afa}.highlight .go{color:#888}.highlight .gp{color:#555}.highlight .gs{font-weight:bold}.highlight .gu{color:#800080;font-weight:bold}.highlight .gt{color:#a00}.highlight .kc{font-weight:bold}.highlight .kd{font-weight:bold}.highlight .kn{font-weight:bold}.highlight .kp{font-weight:bold}.highlight .kr{font-weight:bold}.highlight .kt{color:#458;font-weight:bold}.highlight .m{color:#099}.highlight .s{color:#d14}.highlight .na{color:#008080}.highlight .nb{color:#0086b3}.highlight .nc{color:#458;font-weight:bold}.highlight .no{color:#008080}.highlight .ni{color:#800080}.highlight .ne{color:#900;font-weight:bold}.highlight .nf{color:#900;font-weight:bold}.highlight .nn{color:#555}.highlight .nt{color:#000080}.highlight .nv{color:#008080}.highlight .ow{font-weight:bold}.highlight .w{color:#bbb}.highlight .mf{color:#099}.highlight .mh{color:#099}.highlight .mi{color:#099}.highlight .mo{color:#099}.highlight .sb{color:#d14}.highlight .sc{color:#d14}.highlight .sd{color:#d14}.highlight .s2{color:#d14}.highlight .se{color:#d14}.highlight .sh{color:#d14}.highlight .si{color:#d14}.highlight .sx{color:#d14}.highlight .sr{color:#009926}.highlight .s1{color:#d14}.highlight .ss{color:#990073}.highlight .bp{color:#999}.highlight .vc{color:#008080}.highlight .vg{color:#008080}.highlight .vi{color:#008080}.highlight .il{color:#099}.highlight .gc{color:#999;background-color:#eaf2f5}.type-csharp .highlight .k{color:#00F}.type-csharp .highlight .kt{color:#00F}.type-csharp .highlight .nf{color:#000;font-weight:normal}.type-csharp .highlight .nc{color:#2b91af}.type-csharp .highlight .nn{color:#000}.type-csharp .highlight .s{color:#a31515}.type-csharp .highlight .sc{color:#a31515}
+	            </style>
+            </head>
+            <body>
+            <div id="wrapper">
+            <h1>
+<a id="user-content-appcheck-ng-api-client-powershell-module-appcheck-ng" class="anchor" href="#appcheck-ng-api-client-powershell-module-appcheck-ng" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>AppCheck-NG API Client PowerShell Module (AppCheck-NG)</h1>
+<h2>
+<a id="user-content-delete-appcheckngscanrun" class="anchor" href="#delete-appcheckngscanrun" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Delete-AppCheckNGScanRun]</h2>
+<h2>
+<a id="user-content-synopsis" class="anchor" href="#synopsis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Remove (Delete) a Run of an existing Scan Definition</p>
+<h2>
+<a id="user-content-syntax" class="anchor" href="#syntax" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Remove-AppCheckNGScanRun</span> [<span class="pl-k">-</span><span class="pl-k">ScanID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">-</span><span class="pl-k">RunID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description" class="anchor" href="#description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Delete a Run of an existing Scan Definition.
+Returns true or false depending on success status.</p>
+<h2>
+<a id="user-content-parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-scanid" class="anchor" href="#scanid" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanID</h3>
+<p>ID of the Scan to remove the Run from</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h3>
+<a id="user-content-runid" class="anchor" href="#runid" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>RunID</h3>
+<p>ID of the Run to remove</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 2</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h2>
+<a id="user-content-examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1" class="anchor" href="#example-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Remove-AppCheckNGScanRun</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span> <span class="pl-k">-</span>RunID <span class="pl-s"><span class="pl-pds">'</span>6d9a2783bc0145ef<span class="pl-pds">'</span></span></pre></div>
+<h3>
+<a id="user-content-example-2" class="anchor" href="#example-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 2</h3>
+<div class="highlight highlight-source-powershell"><pre>Delete<span class="pl-k">-</span>AppCheckNGScanRun <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span> <span class="pl-k">-</span>RunID <span class="pl-s"><span class="pl-pds">'</span>6d9a2783bc0145ef<span class="pl-pds">'</span></span></pre></div>
+<h2>
+<a id="user-content-pause-appcheckngscan" class="anchor" href="#pause-appcheckngscan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Pause-AppCheckNGScan]</h2>
+<h2>
+<a id="user-content-synopsis-1" class="anchor" href="#synopsis-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Suspend (Pause) a single Scan</p>
+<h2>
+<a id="user-content-syntax-1" class="anchor" href="#syntax-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Suspend-AppCheckNGScan</span> [<span class="pl-k">-</span><span class="pl-k">ScanID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-1" class="anchor" href="#description-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Pause a Scan and Returns true or false depending on success.
+POST /api/v1/(api_key)/scan/(scan_id)/pause</p>
+<h2>
+<a id="user-content-parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-scanid-1" class="anchor" href="#scanid-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanID</h3>
+<p>ID of the Scan to be suspended</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h2>
+<a id="user-content-examples-1" class="anchor" href="#examples-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-1" class="anchor" href="#example-1-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Suspend-AppCheckNGScan</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span></pre></div>
+<h3>
+<a id="user-content-example-2-1" class="anchor" href="#example-2-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 2</h3>
+<div class="highlight highlight-source-powershell"><pre>Pause<span class="pl-k">-</span>AppCheckNGScan <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span></pre></div>
+<h2>
+<a id="user-content-delete-appcheckngscan" class="anchor" href="#delete-appcheckngscan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Delete-AppCheckNGScan]</h2>
+<h2>
+<a id="user-content-synopsis-2" class="anchor" href="#synopsis-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Delete a single Scan Definition</p>
+<h2>
+<a id="user-content-syntax-2" class="anchor" href="#syntax-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre>Delete<span class="pl-k">-</span>AppCheckNGScan [<span class="pl-k">-</span><span class="pl-k">ScanID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-2" class="anchor" href="#description-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Deletes a Scan Definition and Returns true or false depending on success.
+POST /api/v1/(api_key)/scan/(scan_id)/delete</p>
+<h2>
+<a id="user-content-parameters-2" class="anchor" href="#parameters-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-scanid-2" class="anchor" href="#scanid-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanID</h3>
+<p>ID of the Scan to be deleted</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h2>
+<a id="user-content-examples-2" class="anchor" href="#examples-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-2" class="anchor" href="#example-1-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre>Delete<span class="pl-k">-</span>AppCheckNGScan <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span></pre></div>
+<h2>
+<a id="user-content-delete-appcheckngvuln" class="anchor" href="#delete-appcheckngvuln" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Delete-AppCheckNGVuln]</h2>
+<h2>
+<a id="user-content-synopsis-3" class="anchor" href="#synopsis-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Delete a Vulnerability</p>
+<h2>
+<a id="user-content-syntax-3" class="anchor" href="#syntax-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre>Delete<span class="pl-k">-</span>AppCheckNGVuln [<span class="pl-k">-</span><span class="pl-k">VulnID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-3" class="anchor" href="#description-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Deletes a Vulnerability based on the ID. This Vulnerability is associated with a Scan.
+POST /api/v1/(api_key)/vulnerability/(vuln_id)/delete</p>
+<h2>
+<a id="user-content-parameters-3" class="anchor" href="#parameters-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-vulnid" class="anchor" href="#vulnid" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VulnID</h3>
+<p>ID of the Vulnerability to be deleted</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h2>
+<a id="user-content-examples-3" class="anchor" href="#examples-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-3" class="anchor" href="#example-1-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre>Delete<span class="pl-k">-</span>AppCheckNGVuln <span class="pl-k">-</span>Vuln <span class="pl-s"><span class="pl-pds">'</span>5a597bf3af963f118022e08429bc076e437442ba<span class="pl-pds">'</span></span></pre></div>
+<h2>
+<a id="user-content-get-appcheckngscan" class="anchor" href="#get-appcheckngscan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Get-AppCheckNGScan]</h2>
+<h2>
+<a id="user-content-synopsis-4" class="anchor" href="#synopsis-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Gets a specific scan</p>
+<h2>
+<a id="user-content-syntax-4" class="anchor" href="#syntax-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScan</span> [<span class="pl-k">-</span><span class="pl-k">ScanID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-4" class="anchor" href="#description-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Gets the status for a specific Scan.
+GET /api/v1/(api_key)/scan/(scan_id)</p>
+<h2>
+<a id="user-content-parameters-4" class="anchor" href="#parameters-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-scanid-3" class="anchor" href="#scanid-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanID</h3>
+<p>ID of the Scan to get details of</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h2>
+<a id="user-content-examples-4" class="anchor" href="#examples-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-4" class="anchor" href="#example-1-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScan</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span></pre></div>
+<h2>
+<a id="user-content-get-appcheckngscanbyname" class="anchor" href="#get-appcheckngscanbyname" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Get-AppCheckNGScanByName]</h2>
+<h2>
+<a id="user-content-synopsis-5" class="anchor" href="#synopsis-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Gets a specific scan by name rather than scan ID</p>
+<h2>
+<a id="user-content-syntax-5" class="anchor" href="#syntax-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanByName</span> [<span class="pl-k">-</span><span class="pl-k">Name</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">-</span><span class="pl-k">UseLike</span>] [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-5" class="anchor" href="#description-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Get a specific scan by name where the scan definition EQUALS the name.
+To have the search done with wildcards, use the -UseLike switch.
+WARNING: Be careful not to feed or pipe the results into a Delete operation
+without being sure of the results as if -UseLike is set, you may end up deleting more than intended!</p>
+<h2>
+<a id="user-content-parameters-5" class="anchor" href="#parameters-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-name" class="anchor" href="#name" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Name</h3>
+<p>Mandatory String of the name to search for scans with a matching definition name</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h3>
+<a id="user-content-uselike" class="anchor" href="#uselike" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>UseLike</h3>
+<p>Optional switch to use -LIKE comparison rather than -EQuals. This allows for wildcards in the name paramater</p>
+<ul>
+<li>
+<strong>Type</strong>: SwitchParameter</li>
+<li>
+<strong>DefaultValue</strong>: False</li>
+<li>
+<strong>ParameterValue</strong>: SwitchParameter</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: named</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h2>
+<a id="user-content-examples-5" class="anchor" href="#examples-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-5" class="anchor" href="#example-1-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanByName</span> <span class="pl-k">-</span>Name <span class="pl-s"><span class="pl-pds">'</span>PetShop-DevelopmentSite<span class="pl-pds">'</span></span></pre></div>
+<h3>
+<a id="user-content-example-2-2" class="anchor" href="#example-2-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 2</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanByName</span> <span class="pl-k">-</span>Name <span class="pl-s"><span class="pl-pds">'</span>PetShop-*<span class="pl-pds">'</span></span> <span class="pl-k">-</span>UseLike</pre></div>
+<h2>
+<a id="user-content-get-appcheckngscanhubs" class="anchor" href="#get-appcheckngscanhubs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Get-AppCheckNGScanHubs]</h2>
+<h2>
+<a id="user-content-synopsis-6" class="anchor" href="#synopsis-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Get a list of the AppCheck Scan Hubs for your instance</p>
+<h2>
+<a id="user-content-syntax-6" class="anchor" href="#syntax-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanHubs</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-6" class="anchor" href="#description-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Returns an object containing the Scan Hub details including the ScanHub_ID that can be used when creating or updating a Scan Definition.
+GET /api/v1/(api_key)/scan/hubs</p>
+<h2>
+<a id="user-content-examples-6" class="anchor" href="#examples-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-6" class="anchor" href="#example-1-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanHubs</span></pre></div>
+<h2>
+<a id="user-content-get-appcheckngscanprofiles" class="anchor" href="#get-appcheckngscanprofiles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Get-AppCheckNGScanProfiles]</h2>
+<h2>
+<a id="user-content-synopsis-7" class="anchor" href="#synopsis-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Get ALL Scan Peofiles from the AppCheck instance</p>
+<h2>
+<a id="user-content-syntax-7" class="anchor" href="#syntax-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanProfiles</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-7" class="anchor" href="#description-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Gets an object containing all of the Scan Profiles.
+GET /api/v1/(api_key)/scanprofiles</p>
+<h2>
+<a id="user-content-examples-7" class="anchor" href="#examples-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-7" class="anchor" href="#example-1-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanProfiles</span></pre></div>
+<h2>
+<a id="user-content-get-appcheckngscanrun" class="anchor" href="#get-appcheckngscanrun" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Get-AppCheckNGScanRun]</h2>
+<h2>
+<a id="user-content-synopsis-8" class="anchor" href="#synopsis-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Get details of a specific Scan Run</p>
+<h2>
+<a id="user-content-syntax-8" class="anchor" href="#syntax-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanRun</span> [<span class="pl-k">-</span><span class="pl-k">ScanID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">-</span><span class="pl-k">RunID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-8" class="anchor" href="#description-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Gets the details of a specific Run of a specific Scan.
+GET /api/v1/(api_key)/scan/(scan_id)/run/(run_id)</p>
+<h2>
+<a id="user-content-parameters-6" class="anchor" href="#parameters-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-scanid-4" class="anchor" href="#scanid-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanID</h3>
+<p>ID of the Scan to get details of the Run</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h3>
+<a id="user-content-runid-1" class="anchor" href="#runid-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>RunID</h3>
+<p>ID of the Run to get details of</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 2</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h2>
+<a id="user-content-examples-8" class="anchor" href="#examples-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-8" class="anchor" href="#example-1-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanRun</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span> <span class="pl-k">-</span>RunID <span class="pl-s"><span class="pl-pds">'</span>b3c3866b74f24cd5<span class="pl-pds">'</span></span></pre></div>
+<h2>
+<a id="user-content-get-appcheckngscanrunlatest" class="anchor" href="#get-appcheckngscanrunlatest" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Get-AppCheckNGScanRunLatest]</h2>
+<h2>
+<a id="user-content-synopsis-9" class="anchor" href="#synopsis-9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Get-AppCheckNGScanRunLatest [-ScanID]  []</p>
+<h2>
+<a id="user-content-syntax-9" class="anchor" href="#syntax-9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre>syntaxItem                                                                                                             
+<span class="pl-k">----------</span>                                                                                                             
+{<span class="pl-k">@</span>{<span class="pl-smi">name</span><span class="pl-k">=</span><span class="pl-c1">Get-AppCheckNGScanRunLatest</span>; <span class="pl-smi">CommonParameters</span><span class="pl-k">=</span>True; <span class="pl-smi">WorkflowCommonParameters</span><span class="pl-k">=</span>False; <span class="pl-smi">parameter</span><span class="pl-k">=</span>System.Object[]}}</pre></div>
+<h2>
+<a id="user-content-parameters-7" class="anchor" href="#parameters-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-scanid-5" class="anchor" href="#scanid-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanID</h3>
+<ul>
+<li>
+<strong>Type</strong>: string</li>
+<li>
+<strong>ParameterValue</strong>: string</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 0</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h2>
+<a id="user-content-get-appcheckngscanruns" class="anchor" href="#get-appcheckngscanruns" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Get-AppCheckNGScanRuns]</h2>
+<h2>
+<a id="user-content-synopsis-10" class="anchor" href="#synopsis-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Gets a list of all Runs for a specific Scan</p>
+<h2>
+<a id="user-content-syntax-10" class="anchor" href="#syntax-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanRuns</span> [<span class="pl-k">-</span><span class="pl-k">ScanID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [[<span class="pl-k">-</span><span class="pl-k">Status</span>] <span class="pl-k">&lt;</span><span class="pl-k">String</span><span class="pl-k">&gt;</span>] [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-9" class="anchor" href="#description-9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Gets a list of all Runs for a specific Scan.
+Use Get-AppCheckNGScanRunLatest to get the most recent Run, irrespective of the Status.
+GET /api/v1/(api_key)/scan/(scan_id)/runs</p>
+<h2>
+<a id="user-content-parameters-8" class="anchor" href="#parameters-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-scanid-6" class="anchor" href="#scanid-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanID</h3>
+<p>ID of the Scan to return the Runs for</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h3>
+<a id="user-content-status" class="anchor" href="#status" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Status</h3>
+<p>Optional status field to filter by ('RUNNING','PAUSED','ABORTED','DETACHED','COMPLETED','FAILED')</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 2</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h2>
+<a id="user-content-examples-9" class="anchor" href="#examples-9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-9" class="anchor" href="#example-1-9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanRuns</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span></pre></div>
+<h2>
+<a id="user-content-get-appcheckngscanrunvulns" class="anchor" href="#get-appcheckngscanrunvulns" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Get-AppCheckNGScanRunVulns]</h2>
+<h2>
+<a id="user-content-synopsis-11" class="anchor" href="#synopsis-11" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Gets a list of Vulnerabilities for a specific Scan Run</p>
+<h2>
+<a id="user-content-syntax-11" class="anchor" href="#syntax-11" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanRunVulns</span> [<span class="pl-k">-</span><span class="pl-k">ScanID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">-</span><span class="pl-k">RunID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [[<span class="pl-k">-</span><span class="pl-k">Status</span>] <span class="pl-k">&lt;</span><span class="pl-k">String</span><span class="pl-k">&gt;</span>] [[<span class="pl-k">-</span><span class="pl-k">Severity</span>] <span class="pl-k">&lt;</span><span class="pl-k">String</span><span class="pl-k">&gt;</span>] [[<span class="pl-k">-</span><span class="pl-k">CVSS</span>] <span class="pl-k">&lt;</span><span class="pl-k">Int32</span><span class="pl-k">&gt;</span>] [<span class="pl-k">-</span><span class="pl-k">IncludeInfo</span>] [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-10" class="anchor" href="#description-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Gets a list of Vulnerabilities for a specific Scan Run.
+GET /api/v1/(api_key)/scan/(scan_id)/run/(run_id)/vulnerabilities</p>
+<h2>
+<a id="user-content-parameters-9" class="anchor" href="#parameters-9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-scanid-7" class="anchor" href="#scanid-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanID</h3>
+<p>ID of the Scan to list the vulnerabilities of</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h3>
+<a id="user-content-runid-2" class="anchor" href="#runid-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>RunID</h3>
+<p>ID of the Run to list the vulnerabilities of</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 2</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h3>
+<a id="user-content-status-1" class="anchor" href="#status-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Status</h3>
+<p>Optional Status parameter to filter by ('unfixed','fixed','false_positive','acceptable_risk')</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 3</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h3>
+<a id="user-content-severity" class="anchor" href="#severity" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Severity</h3>
+<p>Optional Severity parameter to filter by ('info','low','medium','high')</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 4</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h3>
+<a id="user-content-cvss" class="anchor" href="#cvss" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CVSS</h3>
+<p>Optional integer based CVSS parameter to filter by a CVSS score limit</p>
+<ul>
+<li>
+<strong>Type</strong>: Int32</li>
+<li>
+<strong>DefaultValue</strong>: 0</li>
+<li>
+<strong>ParameterValue</strong>: Int32</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 5</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h3>
+<a id="user-content-includeinfo" class="anchor" href="#includeinfo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>IncludeInfo</h3>
+<p>Optional switch IncludeInfo to include more detailed information about the Vulnerability</p>
+<ul>
+<li>
+<strong>Type</strong>: SwitchParameter</li>
+<li>
+<strong>DefaultValue</strong>: False</li>
+<li>
+<strong>ParameterValue</strong>: SwitchParameter</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: named</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h2>
+<a id="user-content-examples-10" class="anchor" href="#examples-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-10" class="anchor" href="#example-1-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanRunVulns</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span> <span class="pl-k">-</span>RunID <span class="pl-s"><span class="pl-pds">'</span>74bbcd2fc4686335<span class="pl-pds">'</span></span></pre></div>
+<h3>
+<a id="user-content-example-2-3" class="anchor" href="#example-2-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 2</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanVulns</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span> <span class="pl-k">-</span>RunID <span class="pl-s"><span class="pl-pds">'</span>74bbcd2fc4686335<span class="pl-pds">'</span></span> <span class="pl-k">-</span>Status <span class="pl-s"><span class="pl-pds">'</span>unfixed<span class="pl-pds">'</span></span></pre></div>
+<h3>
+<a id="user-content-example-3" class="anchor" href="#example-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 3</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanVulns</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span> <span class="pl-k">-</span>RunID <span class="pl-s"><span class="pl-pds">'</span>74bbcd2fc4686335<span class="pl-pds">'</span></span> <span class="pl-k">-</span>Severity <span class="pl-s"><span class="pl-pds">'</span>high<span class="pl-pds">'</span></span></pre></div>
+<h3>
+<a id="user-content-example-4" class="anchor" href="#example-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 4</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanVulns</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span> <span class="pl-k">-</span>RunID <span class="pl-s"><span class="pl-pds">'</span>74bbcd2fc4686335<span class="pl-pds">'</span></span> <span class="pl-k">-</span>CVSS <span class="pl-c1">7</span></pre></div>
+<h2>
+<a id="user-content-get-appcheckngscans" class="anchor" href="#get-appcheckngscans" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Get-AppCheckNGScans]</h2>
+<h2>
+<a id="user-content-synopsis-12" class="anchor" href="#synopsis-12" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Get ALL Scans from the AppCheck instance</p>
+<h2>
+<a id="user-content-syntax-12" class="anchor" href="#syntax-12" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScans</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-11" class="anchor" href="#description-11" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Gets an object containing all of the Scan Definitions.
+Used in Get-AppCheckNGScanByName to filter by name of a specific Scan Definition.
+GET /api/v1/(api_key)/scans</p>
+<h2>
+<a id="user-content-examples-11" class="anchor" href="#examples-11" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-11" class="anchor" href="#example-1-11" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScans</span></pre></div>
+<h3>
+<a id="user-content-example-2-4" class="anchor" href="#example-2-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 2</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-smi">$Name</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Scan-I-Really-Want<span class="pl-pds">'</span></span></pre></div>
+<p>$Scan = $(Get-AppCheckNGScans).data | Where name -eq $Name | Select scan_id</p>
+<h2>
+<a id="user-content-get-appcheckngscanstatus" class="anchor" href="#get-appcheckngscanstatus" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Get-AppCheckNGScanStatus]</h2>
+<h2>
+<a id="user-content-synopsis-13" class="anchor" href="#synopsis-13" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Gets the status of a scan</p>
+<h2>
+<a id="user-content-syntax-13" class="anchor" href="#syntax-13" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanStatus</span> [<span class="pl-k">-</span><span class="pl-k">ScanID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-12" class="anchor" href="#description-12" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Gets the status for a specific Scan.
+GET /api/v1/(api_key)/scan/(scan_id)/status</p>
+<h2>
+<a id="user-content-parameters-10" class="anchor" href="#parameters-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-scanid-8" class="anchor" href="#scanid-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanID</h3>
+<p>ID of the Scan to list the status of</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h2>
+<a id="user-content-examples-12" class="anchor" href="#examples-12" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-12" class="anchor" href="#example-1-12" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanStatus</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span></pre></div>
+<h2>
+<a id="user-content-get-appcheckngscanvulns" class="anchor" href="#get-appcheckngscanvulns" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Get-AppCheckNGScanVulns]</h2>
+<h2>
+<a id="user-content-synopsis-14" class="anchor" href="#synopsis-14" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Gets a list of Vulnerabilities for a specific Scan</p>
+<h2>
+<a id="user-content-syntax-14" class="anchor" href="#syntax-14" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanVulns</span> [<span class="pl-k">-</span><span class="pl-k">ScanID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [[<span class="pl-k">-</span><span class="pl-k">Status</span>] <span class="pl-k">&lt;</span><span class="pl-k">String</span><span class="pl-k">&gt;</span>] [[<span class="pl-k">-</span><span class="pl-k">Severity</span>] <span class="pl-k">&lt;</span><span class="pl-k">String</span><span class="pl-k">&gt;</span>] [[<span class="pl-k">-</span><span class="pl-k">CVSS</span>] <span class="pl-k">&lt;</span><span class="pl-k">Int32</span><span class="pl-k">&gt;</span>] [<span class="pl-k">-</span><span class="pl-k">IncludeInfo</span>] [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-13" class="anchor" href="#description-13" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Gets a list of Vulnerabilities for a specific Scan.
+GET /api/v1/(api_key)/scan/(scan_id)/vulnerabilities</p>
+<h2>
+<a id="user-content-parameters-11" class="anchor" href="#parameters-11" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-scanid-9" class="anchor" href="#scanid-9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanID</h3>
+<p>ID of the Scan to list the vulnerabilities of</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h3>
+<a id="user-content-status-2" class="anchor" href="#status-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Status</h3>
+<p>Optional Status parameter to filter by ('unfixed','fixed','false_positive','acceptable_risk')</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 2</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h3>
+<a id="user-content-severity-1" class="anchor" href="#severity-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Severity</h3>
+<p>Optional Severity parameter to filter by ('info','low','medium','high')</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 3</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h3>
+<a id="user-content-cvss-1" class="anchor" href="#cvss-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CVSS</h3>
+<p>Optional integer based CVSS parameter to filter by a CVSS score limit</p>
+<ul>
+<li>
+<strong>Type</strong>: Int32</li>
+<li>
+<strong>DefaultValue</strong>: 0</li>
+<li>
+<strong>ParameterValue</strong>: Int32</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 4</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h3>
+<a id="user-content-includeinfo-1" class="anchor" href="#includeinfo-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>IncludeInfo</h3>
+<p>Optional switch IncludeInfo to include more detailed information about the Vulnerability</p>
+<ul>
+<li>
+<strong>Type</strong>: SwitchParameter</li>
+<li>
+<strong>DefaultValue</strong>: False</li>
+<li>
+<strong>ParameterValue</strong>: SwitchParameter</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: named</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h2>
+<a id="user-content-examples-13" class="anchor" href="#examples-13" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-13" class="anchor" href="#example-1-13" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanVulns</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span></pre></div>
+<h3>
+<a id="user-content-example-2-5" class="anchor" href="#example-2-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 2</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanVulns</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span> <span class="pl-k">-</span>Status <span class="pl-s"><span class="pl-pds">'</span>unfixed<span class="pl-pds">'</span></span></pre></div>
+<h3>
+<a id="user-content-example-3-1" class="anchor" href="#example-3-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 3</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanVulns</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span> <span class="pl-k">-</span>Severity <span class="pl-s"><span class="pl-pds">'</span>high<span class="pl-pds">'</span></span></pre></div>
+<h3>
+<a id="user-content-example-4-1" class="anchor" href="#example-4-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 4</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGScanVulns</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span> <span class="pl-k">-</span>CVSS <span class="pl-c1">7</span></pre></div>
+<h2>
+<a id="user-content-get-appcheckngvuln" class="anchor" href="#get-appcheckngvuln" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Get-AppCheckNGVuln]</h2>
+<h2>
+<a id="user-content-synopsis-15" class="anchor" href="#synopsis-15" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Gets a specific vulnerability</p>
+<h2>
+<a id="user-content-syntax-15" class="anchor" href="#syntax-15" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGVuln</span> [<span class="pl-k">-</span><span class="pl-k">VulnID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-14" class="anchor" href="#description-14" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Gets the details for a specific vulnerability.
+GET /api/v1/(api_key)/vulnerability/(vulnerability_id)</p>
+<h2>
+<a id="user-content-parameters-12" class="anchor" href="#parameters-12" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-vulnid-1" class="anchor" href="#vulnid-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VulnID</h3>
+<p>ID of the Vulnerability to get details of</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h2>
+<a id="user-content-examples-14" class="anchor" href="#examples-14" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-14" class="anchor" href="#example-1-14" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGVuln</span> <span class="pl-k">-</span>Vuln <span class="pl-s"><span class="pl-pds">'</span>5a597bf3af963f118022e08429bc076e437442ba<span class="pl-pds">'</span></span></pre></div>
+<h2>
+<a id="user-content-get-appcheckngvulns" class="anchor" href="#get-appcheckngvulns" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Get-AppCheckNGVulns]</h2>
+<h2>
+<a id="user-content-synopsis-16" class="anchor" href="#synopsis-16" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Gets a list of ALL Vulnerabilities</p>
+<h2>
+<a id="user-content-syntax-16" class="anchor" href="#syntax-16" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGVulns</span> [[<span class="pl-k">-</span><span class="pl-k">Status</span>] <span class="pl-k">&lt;</span><span class="pl-k">String</span><span class="pl-k">&gt;</span>] [<span class="pl-k">-</span><span class="pl-k">Short</span>] [[<span class="pl-k">-</span><span class="pl-k">Severity</span>] <span class="pl-k">&lt;</span><span class="pl-k">String</span><span class="pl-k">&gt;</span>] [[<span class="pl-k">-</span><span class="pl-k">CVSS</span>] <span class="pl-k">&lt;</span><span class="pl-k">Int32</span><span class="pl-k">&gt;</span>] [<span class="pl-k">-</span><span class="pl-k">IncludeInfo</span>] [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-15" class="anchor" href="#description-15" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Gets a list of all Vulnerabilities from the instance
+GET /api/v1/(api_key)/vulnerabilities</p>
+<h2>
+<a id="user-content-parameters-13" class="anchor" href="#parameters-13" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-status-3" class="anchor" href="#status-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Status</h3>
+<p>Optional Status parameter to filter by ('unfixed','fixed','false_positive','acceptable_risk')</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h3>
+<a id="user-content-short" class="anchor" href="#short" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Short</h3>
+<p>Optional switch Short to only list Short information about the Vulnerabilities</p>
+<ul>
+<li>
+<strong>Type</strong>: SwitchParameter</li>
+<li>
+<strong>DefaultValue</strong>: False</li>
+<li>
+<strong>ParameterValue</strong>: SwitchParameter</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: named</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h3>
+<a id="user-content-severity-2" class="anchor" href="#severity-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Severity</h3>
+<p>Optional Severity parameter to filter by ('info','low','medium','high')</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 2</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h3>
+<a id="user-content-cvss-2" class="anchor" href="#cvss-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CVSS</h3>
+<p>Optional integer based CVSS parameter to filter by a CVSS score limit</p>
+<ul>
+<li>
+<strong>Type</strong>: Int32</li>
+<li>
+<strong>DefaultValue</strong>: 0</li>
+<li>
+<strong>ParameterValue</strong>: Int32</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 3</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h3>
+<a id="user-content-includeinfo-2" class="anchor" href="#includeinfo-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>IncludeInfo</h3>
+<p>Optional switch IncludeInfo to include more detailed information about the Vulnerability</p>
+<ul>
+<li>
+<strong>Type</strong>: SwitchParameter</li>
+<li>
+<strong>DefaultValue</strong>: False</li>
+<li>
+<strong>ParameterValue</strong>: SwitchParameter</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: named</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h2>
+<a id="user-content-examples-15" class="anchor" href="#examples-15" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-15" class="anchor" href="#example-1-15" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGVulns</span></pre></div>
+<h3>
+<a id="user-content-example-2-6" class="anchor" href="#example-2-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 2</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGVulns</span> <span class="pl-k">-</span>Status <span class="pl-s"><span class="pl-pds">'</span>unfixed<span class="pl-pds">'</span></span></pre></div>
+<h3>
+<a id="user-content-example-3-2" class="anchor" href="#example-3-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 3</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGVulns</span> <span class="pl-k">-</span>Severity <span class="pl-s"><span class="pl-pds">'</span>high<span class="pl-pds">'</span></span></pre></div>
+<h3>
+<a id="user-content-example-4-2" class="anchor" href="#example-4-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 4</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Get-AppCheckNGVulns</span> <span class="pl-k">-</span>CVSS <span class="pl-c1">7</span></pre></div>
+<h2>
+<a id="user-content-invoke-appcheckngrest" class="anchor" href="#invoke-appcheckngrest" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Invoke-AppCheckNGREST]</h2>
+<h2>
+<a id="user-content-synopsis-17" class="anchor" href="#synopsis-17" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Helper function to make REST call.</p>
+<h2>
+<a id="user-content-syntax-17" class="anchor" href="#syntax-17" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Invoke-AppCheckNGREST</span> [<span class="pl-k">-</span><span class="pl-k">Uri</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">-</span><span class="pl-k">Method</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [[<span class="pl-k">-</span><span class="pl-k">Body</span>] <span class="pl-k">&lt;</span><span class="pl-k">Object</span><span class="pl-k">&gt;</span>] [[<span class="pl-k">-</span><span class="pl-k">Headers</span>] <span class="pl-k">&lt;</span><span class="pl-k">Object</span><span class="pl-k">&gt;</span>] [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-16" class="anchor" href="#description-16" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Helper function to make REST call which validates input, controls output and logs.
+Uses $script:AppCheckNGUserAgent for the User Agent header (polite API client).
+Uses $script:AppCheckNGRESTTimeout as a timeout for the REST call.
+Function is generally not used outside of the Module.
+Logs to path defined in $script:AppCheckNGLogPath</p>
+<h2>
+<a id="user-content-parameters-14" class="anchor" href="#parameters-14" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-uri" class="anchor" href="#uri" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Uri</h3>
+<p>Full URI used for the REST call complete with protocol, domain, path and query parameters as required</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h3>
+<a id="user-content-method" class="anchor" href="#method" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Method</h3>
+<p>The HTTP methods supported are GET and POST only</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 2</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h3>
+<a id="user-content-body" class="anchor" href="#body" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Body</h3>
+<p>The Body of the HTTP Request. Used when making POST calls</p>
+<ul>
+<li>
+<strong>Type</strong>: Object</li>
+<li>
+<strong>ParameterValue</strong>: Object</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 3</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h3>
+<a id="user-content-headers" class="anchor" href="#headers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Headers</h3>
+<p>The Headers of the HTTP Request. Used when making POST calls as determines the Accept-Encoding</p>
+<ul>
+<li>
+<strong>Type</strong>: Object</li>
+<li>
+<strong>ParameterValue</strong>: Object</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 4</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h2>
+<a id="user-content-examples-16" class="anchor" href="#examples-16" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-16" class="anchor" href="#example-1-16" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Invoke-AppCheckNGREST</span> <span class="pl-k">-</span>Uri <span class="pl-smi">$uri</span> <span class="pl-k">-</span>Method POST <span class="pl-k">-</span>Body <span class="pl-s"><span class="pl-pds">'</span>name=test&amp;profile_id=12345678abc<span class="pl-pds">'</span></span> <span class="pl-k">-</span>Headers <span class="pl-smi">$MyHeaders</span></pre></div>
+<h2>
+<a id="user-content-new-appcheckngscan" class="anchor" href="#new-appcheckngscan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[New-AppCheckNGScan]</h2>
+<h2>
+<a id="user-content-synopsis-18" class="anchor" href="#synopsis-18" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Creates a new AppCheck Scan Definition</p>
+<h2>
+<a id="user-content-syntax-18" class="anchor" href="#syntax-18" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">New-AppCheckNGScan</span> [<span class="pl-k">-</span><span class="pl-k">Name</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">-</span><span class="pl-k">Targets</span>] <span class="pl-k">&lt;</span>String[]<span class="pl-k">&gt;</span> [[<span class="pl-k">-</span><span class="pl-k">ProfileID</span>] <span class="pl-k">&lt;</span><span class="pl-k">String</span><span class="pl-k">&gt;</span>] [[<span class="pl-k">-</span><span class="pl-k">ScanHub</span>] <span class="pl-k">&lt;</span><span class="pl-k">String</span><span class="pl-k">&gt;</span>] [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-17" class="anchor" href="#description-17" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Creates a new AppCheck Scan Definition based on a number of parameters.
+The Name and Target(s) are mandatory but ProfileID and ScanHub can be set later using the Update-AppCheckNGScan function
+POST /api/v1/(api_key)/scan/new</p>
+<h2>
+<a id="user-content-parameters-15" class="anchor" href="#parameters-15" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-name-1" class="anchor" href="#name-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Name</h3>
+<p>Name of the Scan Definition to Create</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h3>
+<a id="user-content-targets" class="anchor" href="#targets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Targets</h3>
+<p>List of Target URLs, IP addresses or hostnames to target with the scan.</p>
+<ul>
+<li>
+<strong>Type</strong>: String[]</li>
+<li>
+<strong>ParameterValue</strong>: String[]</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 2</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h3>
+<a id="user-content-profileid" class="anchor" href="#profileid" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ProfileID</h3>
+<p>ID of the Profile to assign to the scan</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 3</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h3>
+<a id="user-content-scanhub" class="anchor" href="#scanhub" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanHub</h3>
+<p>ID of the ScanHub to assign to the scan. This is often already set in the Profile but can be overridden by the Scan Definition</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 4</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h2>
+<a id="user-content-examples-17" class="anchor" href="#examples-17" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-17" class="anchor" href="#example-1-17" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">New-AppCheckNGScan</span> <span class="pl-k">-</span>Name <span class="pl-s"><span class="pl-pds">'</span>MyNewScan<span class="pl-pds">'</span></span> <span class="pl-k">-</span>Targets <span class="pl-k">@</span>(<span class="pl-s"><span class="pl-pds">'</span>http://mynewwebsite.com<span class="pl-pds">'</span></span><span class="pl-k">,</span><span class="pl-s"><span class="pl-pds">'</span>10.1.3.4<span class="pl-pds">'</span></span>)</pre></div>
+<h2>
+<a id="user-content-remove-appcheckngscanbyname" class="anchor" href="#remove-appcheckngscanbyname" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Remove-AppCheckNGScanByName]</h2>
+<h2>
+<a id="user-content-synopsis-19" class="anchor" href="#synopsis-19" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Removes a specific scan by name rather than scan ID</p>
+<h2>
+<a id="user-content-syntax-19" class="anchor" href="#syntax-19" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Remove-AppCheckNGScanByName</span> [<span class="pl-k">-</span><span class="pl-k">Name</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-18" class="anchor" href="#description-18" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Get a specific scan by name where the scan definition EQUALS the name.
+To have the search done with wildcards, use the Get-AppCheckNGScanByName with the -UseLike switch first.
+WARNING: There is no -UseLike switch for this service function for a reason as all scans could then be deleted by specifying the name as '*'!
+Returns true or false depending on success.</p>
+<h2>
+<a id="user-content-parameters-16" class="anchor" href="#parameters-16" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-name-2" class="anchor" href="#name-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Name</h3>
+<p>Mandatory String of the name to search for scans with a matching definition name</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h2>
+<a id="user-content-examples-18" class="anchor" href="#examples-18" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-18" class="anchor" href="#example-1-18" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Remove-AppCheckNGScanByName</span> <span class="pl-k">-</span>Name <span class="pl-s"><span class="pl-pds">'</span>PetShop-DevelopmentSite<span class="pl-pds">'</span></span></pre></div>
+<h2>
+<a id="user-content-remove-appcheckngscanrun" class="anchor" href="#remove-appcheckngscanrun" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Remove-AppCheckNGScanRun]</h2>
+<h2>
+<a id="user-content-synopsis-20" class="anchor" href="#synopsis-20" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Remove (Delete) a Run of an existing Scan Definition</p>
+<h2>
+<a id="user-content-syntax-20" class="anchor" href="#syntax-20" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Remove-AppCheckNGScanRun</span> [<span class="pl-k">-</span><span class="pl-k">ScanID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">-</span><span class="pl-k">RunID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-19" class="anchor" href="#description-19" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Delete a Run of an existing Scan Definition.
+Returns true or false depending on success status.</p>
+<h2>
+<a id="user-content-parameters-17" class="anchor" href="#parameters-17" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-scanid-10" class="anchor" href="#scanid-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanID</h3>
+<p>ID of the Scan to remove the Run from</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h3>
+<a id="user-content-runid-3" class="anchor" href="#runid-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>RunID</h3>
+<p>ID of the Run to remove</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 2</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h2>
+<a id="user-content-examples-19" class="anchor" href="#examples-19" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-19" class="anchor" href="#example-1-19" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Remove-AppCheckNGScanRun</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span> <span class="pl-k">-</span>RunID <span class="pl-s"><span class="pl-pds">'</span>6d9a2783bc0145ef<span class="pl-pds">'</span></span></pre></div>
+<h3>
+<a id="user-content-example-2-7" class="anchor" href="#example-2-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 2</h3>
+<div class="highlight highlight-source-powershell"><pre>Delete<span class="pl-k">-</span>AppCheckNGScanRun <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span> <span class="pl-k">-</span>RunID <span class="pl-s"><span class="pl-pds">'</span>6d9a2783bc0145ef<span class="pl-pds">'</span></span></pre></div>
+<h2>
+<a id="user-content-resume-appcheckngscan" class="anchor" href="#resume-appcheckngscan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Resume-AppCheckNGScan]</h2>
+<h2>
+<a id="user-content-synopsis-21" class="anchor" href="#synopsis-21" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Resume a previous paused or suspended Scan</p>
+<h2>
+<a id="user-content-syntax-21" class="anchor" href="#syntax-21" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Resume-AppCheckNGScan</span> [<span class="pl-k">-</span><span class="pl-k">ScanID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-20" class="anchor" href="#description-20" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Resume a Scan and Returns true or false depending on success.
+POST /api/v1/(api_key)/scan/(scan_id)/resume</p>
+<h2>
+<a id="user-content-parameters-18" class="anchor" href="#parameters-18" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-scanid-11" class="anchor" href="#scanid-11" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanID</h3>
+<p>ID of the Scan to be resumed</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h2>
+<a id="user-content-examples-20" class="anchor" href="#examples-20" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-20" class="anchor" href="#example-1-20" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Resume-AppCheckNGScan</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span></pre></div>
+<h2>
+<a id="user-content-set-appcheckngcorpproxyuse" class="anchor" href="#set-appcheckngcorpproxyuse" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Set-AppCheckNGCorpProxyUse]</h2>
+<h2>
+<a id="user-content-synopsis-22" class="anchor" href="#synopsis-22" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Sets the PowerShell session to use a Corporate or Default Forward Proxy</p>
+<h2>
+<a id="user-content-syntax-22" class="anchor" href="#syntax-22" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Set-AppCheckNGCorpProxyUse</span> [<span class="pl-k">-</span><span class="pl-k">NoDefaultCredentials</span>] [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-21" class="anchor" href="#description-21" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Ensure that Invoke-RestMethod accesses the Internet via a Corporate Proxy.
+Relies on current user IE Proxy settings.
+Set to use default proxy creds when making internet calls.
+If a transparent Proxy is in use, this should not be required.
+If the Proxy does not need authentication, then the -NoDefaultCredentials switch can be added.</p>
+<h2>
+<a id="user-content-parameters-19" class="anchor" href="#parameters-19" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-nodefaultcredentials" class="anchor" href="#nodefaultcredentials" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>NoDefaultCredentials</h3>
+<p>An optional switch to attempt to use the Proxy without credentials being provided.
+If the proxy requests authentication to access the API endpoint (HTTP 401), proxy access will fail.
+This is mainly for use where the API endpoint has been whitelisted for no-authentication.</p>
+<ul>
+<li>
+<strong>Type</strong>: SwitchParameter</li>
+<li>
+<strong>DefaultValue</strong>: False</li>
+<li>
+<strong>ParameterValue</strong>: SwitchParameter</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: named</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h2>
+<a id="user-content-examples-21" class="anchor" href="#examples-21" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-21" class="anchor" href="#example-1-21" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Set-AppCheckNGCorpProxyUse</span></pre></div>
+<h2>
+<a id="user-content-set-appcheckngkey" class="anchor" href="#set-appcheckngkey" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Set-AppCheckNGKey]</h2>
+<h2>
+<a id="user-content-synopsis-23" class="anchor" href="#synopsis-23" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Sets the AppCheckNG API Key</p>
+<h2>
+<a id="user-content-syntax-23" class="anchor" href="#syntax-23" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Set-AppCheckNGKey</span> [<span class="pl-k">-</span><span class="pl-k">apikey</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-22" class="anchor" href="#description-22" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>This function sets the API key for use by the REST calls. The API is also validated by Validate-AppCheckNGKey function when setting.</p>
+<h2>
+<a id="user-content-parameters-20" class="anchor" href="#parameters-20" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-apikey" class="anchor" href="#apikey" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>apikey</h3>
+<p>This parameter is a string of the API Key itself.
+This is a 32 character, per user API key as provided by AppCheck-NG</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h2>
+<a id="user-content-examples-22" class="anchor" href="#examples-22" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-22" class="anchor" href="#example-1-22" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Set-AppCheckNGKey</span> <span class="pl-k">-</span>apikey <span class="pl-s"><span class="pl-pds">'</span>abcdef123456789abcdef123456789ab<span class="pl-pds">'</span></span></pre></div>
+<h2>
+<a id="user-content-set-appcheckngmode" class="anchor" href="#set-appcheckngmode" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Set-AppCheckNGMode]</h2>
+<h2>
+<a id="user-content-synopsis-24" class="anchor" href="#synopsis-24" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Sets the mode that the script should work in. Test or Live.</p>
+<h2>
+<a id="user-content-syntax-24" class="anchor" href="#syntax-24" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Set-AppCheckNGMode</span> [<span class="pl-k">-</span><span class="pl-k">mode</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-23" class="anchor" href="#description-23" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Sets the mode for the script to work in and sets the AppCheckNGTestMode script variable.
+Default is FALSE so Default mode for the script is LIVE.</p>
+<h2>
+<a id="user-content-parameters-21" class="anchor" href="#parameters-21" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-mode" class="anchor" href="#mode" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>mode</h3>
+<p>if 'test', the module will NOT make REST calls but will merely log them for testing purposes.
+if 'live', the module WILL make REST calls and talk to the AppCheckNG API endpoint</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h2>
+<a id="user-content-examples-23" class="anchor" href="#examples-23" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-23" class="anchor" href="#example-1-23" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Set-AppCheckNGMode</span> <span class="pl-k">-</span>mode test</pre></div>
+<h3>
+<a id="user-content-example-2-8" class="anchor" href="#example-2-8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 2</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Set-AppCheckNGMode</span> <span class="pl-k">-</span>mode live</pre></div>
+<h2>
+<a id="user-content-start-appcheckngscan" class="anchor" href="#start-appcheckngscan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Start-AppCheckNGScan]</h2>
+<h2>
+<a id="user-content-synopsis-25" class="anchor" href="#synopsis-25" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Start a single Scan. Creates a new Scan Run that can be queried</p>
+<h2>
+<a id="user-content-syntax-25" class="anchor" href="#syntax-25" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Start-AppCheckNGScan</span> [<span class="pl-k">-</span><span class="pl-k">ScanID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-24" class="anchor" href="#description-24" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Starts a Scan Definition and Returns true or false depending on success.
+POST /api/v1/(api_key)/scan/(scan_id)/start</p>
+<h2>
+<a id="user-content-parameters-22" class="anchor" href="#parameters-22" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-scanid-12" class="anchor" href="#scanid-12" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanID</h3>
+<p>ID of the Scan to be started</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h2>
+<a id="user-content-examples-24" class="anchor" href="#examples-24" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-24" class="anchor" href="#example-1-24" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Start-AppCheckNGScan</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span></pre></div>
+<h2>
+<a id="user-content-stop-appcheckngscan" class="anchor" href="#stop-appcheckngscan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Stop-AppCheckNGScan]</h2>
+<h2>
+<a id="user-content-synopsis-26" class="anchor" href="#synopsis-26" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Stop (Abort) a single Scan</p>
+<h2>
+<a id="user-content-syntax-26" class="anchor" href="#syntax-26" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Stop-AppCheckNGScan</span> [<span class="pl-k">-</span><span class="pl-k">ScanID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-25" class="anchor" href="#description-25" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Stop a Scan and Returns true or false depending on success.
+POST /api/v1/(api_key)/scan/(scan_id)/abort</p>
+<h2>
+<a id="user-content-parameters-23" class="anchor" href="#parameters-23" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-scanid-13" class="anchor" href="#scanid-13" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanID</h3>
+<p>ID of the Scan to be stopped</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h2>
+<a id="user-content-examples-25" class="anchor" href="#examples-25" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-25" class="anchor" href="#example-1-25" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Stop-AppCheckNGScan</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span></pre></div>
+<h2>
+<a id="user-content-suspend-appcheckngscan" class="anchor" href="#suspend-appcheckngscan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Suspend-AppCheckNGScan]</h2>
+<h2>
+<a id="user-content-synopsis-27" class="anchor" href="#synopsis-27" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Suspend (Pause) a single Scan</p>
+<h2>
+<a id="user-content-syntax-27" class="anchor" href="#syntax-27" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Suspend-AppCheckNGScan</span> [<span class="pl-k">-</span><span class="pl-k">ScanID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-26" class="anchor" href="#description-26" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Pause a Scan and Returns true or false depending on success.
+POST /api/v1/(api_key)/scan/(scan_id)/pause</p>
+<h2>
+<a id="user-content-parameters-24" class="anchor" href="#parameters-24" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-scanid-14" class="anchor" href="#scanid-14" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanID</h3>
+<p>ID of the Scan to be suspended</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h2>
+<a id="user-content-examples-26" class="anchor" href="#examples-26" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-26" class="anchor" href="#example-1-26" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Suspend-AppCheckNGScan</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span></pre></div>
+<h3>
+<a id="user-content-example-2-9" class="anchor" href="#example-2-9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 2</h3>
+<div class="highlight highlight-source-powershell"><pre>Pause<span class="pl-k">-</span>AppCheckNGScan <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span></pre></div>
+<h2>
+<a id="user-content-update-appcheckngscan" class="anchor" href="#update-appcheckngscan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Update-AppCheckNGScan]</h2>
+<h2>
+<a id="user-content-synopsis-28" class="anchor" href="#synopsis-28" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Updates an existing AppCheck Scan Definition</p>
+<h2>
+<a id="user-content-syntax-28" class="anchor" href="#syntax-28" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Update-AppCheckNGScan</span> [<span class="pl-k">-</span><span class="pl-k">ScanID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [[<span class="pl-k">-</span><span class="pl-k">Name</span>] <span class="pl-k">&lt;</span><span class="pl-k">String</span><span class="pl-k">&gt;</span>] [[<span class="pl-k">-</span><span class="pl-k">Targets</span>] <span class="pl-k">&lt;</span><span class="pl-k">String</span>[]<span class="pl-k">&gt;</span>] [[<span class="pl-k">-</span><span class="pl-k">ProfileID</span>] <span class="pl-k">&lt;</span><span class="pl-k">String</span><span class="pl-k">&gt;</span>] [[<span class="pl-k">-</span><span class="pl-k">ScanHub</span>] <span class="pl-k">&lt;</span><span class="pl-k">String</span><span class="pl-k">&gt;</span>] [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-27" class="anchor" href="#description-27" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Updates a AppCheck Scan Definition based on a number of parameters.
+The ScanID is mandatory but all others are optional, however at least one must be supplied.
+POST /api/v1/(api_key)/scan/(scan_id)/update</p>
+<h2>
+<a id="user-content-parameters-25" class="anchor" href="#parameters-25" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-scanid-15" class="anchor" href="#scanid-15" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanID</h3>
+<p>Mandatory ID of the Scan Definition to Update</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h3>
+<a id="user-content-name-3" class="anchor" href="#name-3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Name</h3>
+<p>Name of the Scan Definition to Update</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 2</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h3>
+<a id="user-content-targets-1" class="anchor" href="#targets-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Targets</h3>
+<p>List of Target URLs, IP addresses or hostnames to target with the scan.</p>
+<ul>
+<li>
+<strong>Type</strong>: String[]</li>
+<li>
+<strong>ParameterValue</strong>: String[]</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 3</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h3>
+<a id="user-content-profileid-1" class="anchor" href="#profileid-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ProfileID</h3>
+<p>ID of the Profile to assign to the scan</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 4</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h3>
+<a id="user-content-scanhub-1" class="anchor" href="#scanhub-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanHub</h3>
+<p>ID of the ScanHub to assign to the scan. This is often already set in the Profile but can be overridden by the Scan Definition</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 5</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h2>
+<a id="user-content-examples-27" class="anchor" href="#examples-27" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-27" class="anchor" href="#example-1-27" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Update-AppCheckNGScan</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span> <span class="pl-k">-</span>Name <span class="pl-s"><span class="pl-pds">'</span>MyNewScan_Renamed<span class="pl-pds">'</span></span> <span class="pl-k">-</span>Targets <span class="pl-k">@</span>(<span class="pl-s"><span class="pl-pds">'</span>http://mynewwebsite.com<span class="pl-pds">'</span></span><span class="pl-k">,</span><span class="pl-s"><span class="pl-pds">'</span>10.1.3.4<span class="pl-pds">'</span></span>)</pre></div>
+<h2>
+<a id="user-content-update-appcheckngvuln" class="anchor" href="#update-appcheckngvuln" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Update-AppCheckNGVuln]</h2>
+<h2>
+<a id="user-content-synopsis-29" class="anchor" href="#synopsis-29" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Update the status of a Vulnerability</p>
+<h2>
+<a id="user-content-syntax-29" class="anchor" href="#syntax-29" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Update-AppCheckNGVuln</span> [<span class="pl-k">-</span><span class="pl-k">VulnID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [<span class="pl-k">-</span><span class="pl-k">Notes</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [[<span class="pl-k">-</span><span class="pl-k">Priority</span>] <span class="pl-k">&lt;</span><span class="pl-k">String</span><span class="pl-k">&gt;</span>] [[<span class="pl-k">-</span><span class="pl-k">Status</span>] <span class="pl-k">&lt;</span><span class="pl-k">String</span><span class="pl-k">&gt;</span>] [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-28" class="anchor" href="#description-28" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Update a Vulnerability status or add notes.
+POST /api/v1/(api_key)/vulnerability/(vulnerability_id)/update</p>
+<h2>
+<a id="user-content-parameters-26" class="anchor" href="#parameters-26" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-vulnid-2" class="anchor" href="#vulnid-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>VulnID</h3>
+<p>ID of the Vulnerability too be updated</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h3>
+<a id="user-content-notes" class="anchor" href="#notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Notes</h3>
+<p>Notes for the Vulnerability</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: true (ByPropertyName)</li>
+<li>
+<strong>Position</strong>: 2</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h3>
+<a id="user-content-priority" class="anchor" href="#priority" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Priority</h3>
+<p>Priority of the Vulnerability ('low','medium','high')</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 3</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h3>
+<a id="user-content-status-4" class="anchor" href="#status-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Status</h3>
+<p>Status to give of the Vulnerability ('unfixed','fixed','false_positive','acceptable_risk')</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 4</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h2>
+<a id="user-content-examples-28" class="anchor" href="#examples-28" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-28" class="anchor" href="#example-1-28" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Update-AppCheckNGVuln</span> <span class="pl-k">-</span>VulnID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span></pre></div>
+<h2>
+<a id="user-content-watch-appcheckngscan" class="anchor" href="#watch-appcheckngscan" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>[Watch-AppCheckNGScan]</h2>
+<h2>
+<a id="user-content-synopsis-30" class="anchor" href="#synopsis-30" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Synopsis</h2>
+<p>Watches a specific scan given a scan ID</p>
+<h2>
+<a id="user-content-syntax-30" class="anchor" href="#syntax-30" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Syntax</h2>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Watch-AppCheckNGScan</span> [<span class="pl-k">-</span><span class="pl-k">ScanID</span>] <span class="pl-k">&lt;</span>String<span class="pl-k">&gt;</span> [[<span class="pl-k">-</span><span class="pl-k">Timeout</span>] <span class="pl-k">&lt;</span><span class="pl-k">Int32</span><span class="pl-k">&gt;</span>] [[<span class="pl-k">-</span><span class="pl-k">Frequency</span>] <span class="pl-k">&lt;</span><span class="pl-k">Int32</span><span class="pl-k">&gt;</span>] [[<span class="pl-k">-</span><span class="pl-k">MaxFailedChecks</span>] <span class="pl-k">&lt;</span><span class="pl-k">Int32</span><span class="pl-k">&gt;</span>] [<span class="pl-k">&lt;</span><span class="pl-k">CommonParameters</span><span class="pl-k">&gt;</span>]</pre></div>
+<h2>
+<a id="user-content-description-29" class="anchor" href="#description-29" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+<p>Monitors the status of a specific scan for a period of time by checking and reporting every 30 seconds (by default).
+This service function outputs the current status and how long the scan has been running for.
+The scan will continue to be watched while the status is 'RUNNING'.
+If the scan becomes COMPLETED status then the watch exits.
+If the scan becomes 'PAUSED', 'ABORTED', 'DETACHED' or 'FAILED' then the watch exits.
+If the timeout is exceeded then the watch exits.</p>
+<h2>
+<a id="user-content-parameters-27" class="anchor" href="#parameters-27" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h2>
+<h3>
+<a id="user-content-scanid-16" class="anchor" href="#scanid-16" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ScanID</h3>
+<p>ID of the scan required to be watched</p>
+<ul>
+<li>
+<strong>Type</strong>: String</li>
+<li>
+<strong>ParameterValue</strong>: String</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 1</li>
+<li>
+<strong>Required</strong>: true</li>
+</ul>
+<h3>
+<a id="user-content-timeout" class="anchor" href="#timeout" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Timeout</h3>
+<p>Optional Integer of the number of minutes to watch for a COMPLETED scan. If the timeout is exceeded, the watch just exits.
+If the scan is COMPLETED, the watch also exits. The Default Timeout is 5 minutes which is generally insufficient to
+see a full completed scan, but adequate for testing. This will often need to be set to something like 180 (or higher) to
+be given a timeout of 3 hours.</p>
+<ul>
+<li>
+<strong>Type</strong>: Int32</li>
+<li>
+<strong>DefaultValue</strong>: 0</li>
+<li>
+<strong>ParameterValue</strong>: Int32</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 2</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h3>
+<a id="user-content-frequency" class="anchor" href="#frequency" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Frequency</h3>
+<p>Optional Integer of the number of seconds to wait before checking the status again. Default is 30 seconds.</p>
+<ul>
+<li>
+<strong>Type</strong>: Int32</li>
+<li>
+<strong>DefaultValue</strong>: 0</li>
+<li>
+<strong>ParameterValue</strong>: Int32</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 3</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h3>
+<a id="user-content-maxfailedchecks" class="anchor" href="#maxfailedchecks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MaxFailedChecks</h3>
+<p>Optional Integer of the maximum number of failed attempts to check on the scan status before aborting</p>
+<ul>
+<li>
+<strong>Type</strong>: Int32</li>
+<li>
+<strong>DefaultValue</strong>: 0</li>
+<li>
+<strong>ParameterValue</strong>: Int32</li>
+<li>
+<strong>PipelineInput</strong>: false</li>
+<li>
+<strong>Position</strong>: 4</li>
+<li>
+<strong>Required</strong>: false</li>
+</ul>
+<h2>
+<a id="user-content-examples-29" class="anchor" href="#examples-29" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+<h3>
+<a id="user-content-example-1-29" class="anchor" href="#example-1-29" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 1</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Watch-AppCheckNGScan</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span></pre></div>
+<h3>
+<a id="user-content-example-2-10" class="anchor" href="#example-2-10" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example 2</h3>
+<div class="highlight highlight-source-powershell"><pre><span class="pl-c1">Watch-AppCheckNGScan</span> <span class="pl-k">-</span>ScanID <span class="pl-s"><span class="pl-pds">'</span>0123456789abcdef<span class="pl-pds">'</span></span> <span class="pl-k">-</span>TimeOut <span class="pl-c1">180</span> <span class="pl-k">-</span>Frequency <span class="pl-c1">60</span> <span class="pl-k">-</span>MaxFailedChecks <span class="pl-c1">10</span></pre></div>
+
+            </div>
+            </body>
+            </html>
